@@ -1,0 +1,191 @@
+
+
+Detector Type: FAST Descriptor Type: BRISK
+
+TASK.5.6: Image Number :1 ,TTC_Lidar ,12s, TTC_CAMERA,12s
+TASK.5.6: Image Number :2 ,TTC_Lidar ,12s, TTC_CAMERA,12s
+TASK.5.6: Image Number :3 ,TTC_Lidar ,14s, TTC_CAMERA,14s
+TASK.5.6: Image Number :4 ,TTC_Lidar ,16s, TTC_CAMERA,12s
+TASK.5.6: Image Number :5 ,TTC_Lidar ,15s, TTC_CAMERA,50s
+TASK.5.6: Image Number :6 ,TTC_Lidar ,12s, TTC_CAMERA,12s
+TASK.5.6: Image Number :7 ,TTC_Lidar ,11s, TTC_CAMERA,14s
+TASK.5.6: Image Number :8 ,TTC_Lidar ,13s, TTC_CAMERA,11s
+TASK.5.6: Image Number :9 ,TTC_Lidar ,13s, TTC_CAMERA,12s
+TASK.5.6: Image Number :10 ,TTC_Lidar ,11s, TTC_CAMERA,13s
+TASK.5.6: Image Number :11 ,TTC_Lidar ,12s, TTC_CAMERA,13s
+TASK.5.6: Image Number :12 ,TTC_Lidar ,8s, TTC_CAMERA,11s
+TASK.5.6: Image Number :13 ,TTC_Lidar ,9s, TTC_CAMERA,12s
+TASK.5.6: Image Number :14 ,TTC_Lidar ,9s, TTC_CAMERA,11s
+TASK.5.6: Image Number :15 ,TTC_Lidar ,8s, TTC_CAMERA,11s
+TASK.5.6: Image Number :16 ,TTC_Lidar ,9s, TTC_CAMERA,12s
+TASK.5.6: Image Number :17 ,TTC_Lidar ,9s, TTC_CAMERA,8s
+TASK.5.6: Image Number :18 ,TTC_Lidar ,8s, TTC_CAMERA,12s
+
+Detector Type: FAST Descriptor Type: BRIEF
+
+TASK.5.6: Image Number :1 ,TTC_Lidar ,12s, TTC_CAMERA,10s
+TASK.5.6: Image Number :2 ,TTC_Lidar ,12s, TTC_CAMERA,11s
+TASK.5.6: Image Number :3 ,TTC_Lidar ,14s, TTC_CAMERA,14s
+TASK.5.6: Image Number :4 ,TTC_Lidar ,16s, TTC_CAMERA,14s
+TASK.5.6: Image Number :5 ,TTC_Lidar ,15s, TTC_CAMERA,20s
+TASK.5.6: Image Number :6 ,TTC_Lidar ,12s, TTC_CAMERA,13s
+TASK.5.6: Image Number :7 ,TTC_Lidar ,11s, TTC_CAMERA,12s
+TASK.5.6: Image Number :8 ,TTC_Lidar ,13s, TTC_CAMERA,12s
+TASK.5.6: Image Number :9 ,TTC_Lidar ,13s, TTC_CAMERA,12s
+TASK.5.6: Image Number :10 ,TTC_Lidar ,11s, TTC_CAMERA,13s
+TASK.5.6: Image Number :11 ,TTC_Lidar ,12s, TTC_CAMERA,13s
+TASK.5.6: Image Number :12 ,TTC_Lidar ,8s, TTC_CAMERA,10s
+TASK.5.6: Image Number :13 ,TTC_Lidar ,9s, TTC_CAMERA,12s
+TASK.5.6: Image Number :14 ,TTC_Lidar ,9s, TTC_CAMERA,11s
+TASK.5.6: Image Number :15 ,TTC_Lidar ,8s, TTC_CAMERA,11s
+TASK.5.6: Image Number :16 ,TTC_Lidar ,9s, TTC_CAMERA,11s
+TASK.5.6: Image Number :17 ,TTC_Lidar ,9s, TTC_CAMERA,7s
+TASK.5.6: Image Number :18 ,TTC_Lidar ,8s, TTC_CAMERA,11s
+
+Detector Type: FAST Descriptor Type: ORB
+
+TASK.5.6: Image Number :1 ,TTC_Lidar ,12s, TTC_CAMERA,11s
+TASK.5.6: Image Number :2 ,TTC_Lidar ,12s, TTC_CAMERA,10s
+TASK.5.6: Image Number :3 ,TTC_Lidar ,14s, TTC_CAMERA,13s
+TASK.5.6: Image Number :4 ,TTC_Lidar ,16s, TTC_CAMERA,12s
+TASK.5.6: Image Number :5 ,TTC_Lidar ,15s, TTC_CAMERA,18s
+TASK.5.6: Image Number :6 ,TTC_Lidar ,12s, TTC_CAMERA,12s
+TASK.5.6: Image Number :7 ,TTC_Lidar ,11s, TTC_CAMERA,12s
+TASK.5.6: Image Number :8 ,TTC_Lidar ,13s, TTC_CAMERA,11s
+TASK.5.6: Image Number :9 ,TTC_Lidar ,13s, TTC_CAMERA,12s
+TASK.5.6: Image Number :10 ,TTC_Lidar ,11s, TTC_CAMERA,13s
+TASK.5.6: Image Number :11 ,TTC_Lidar ,12s, TTC_CAMERA,13s
+TASK.5.6: Image Number :12 ,TTC_Lidar ,8s, TTC_CAMERA,10s
+TASK.5.6: Image Number :13 ,TTC_Lidar ,9s, TTC_CAMERA,12s
+TASK.5.6: Image Number :14 ,TTC_Lidar ,9s, TTC_CAMERA,11s
+TASK.5.6: Image Number :15 ,TTC_Lidar ,8s, TTC_CAMERA,11s
+TASK.5.6: Image Number :16 ,TTC_Lidar ,9s, TTC_CAMERA,11s
+TASK.5.6: Image Number :17 ,TTC_Lidar ,9s, TTC_CAMERA,7s
+TASK.5.6: Image Number :18 ,TTC_Lidar ,8s, TTC_CAMERA,10s
+
+Detector Type: BRISK Descriptor Type: BRISK
+
+TASK.5.6: Image Number :1 ,TTC_Lidar ,12s, TTC_CAMERA,13s
+TASK.5.6: Image Number :2 ,TTC_Lidar ,12s, TTC_CAMERA,14s
+TASK.5.6: Image Number :3 ,TTC_Lidar ,14s, TTC_CAMERA,11s
+TASK.5.6: Image Number :4 ,TTC_Lidar ,16s, TTC_CAMERA,15s
+TASK.5.6: Image Number :5 ,TTC_Lidar ,15s, TTC_CAMERA,26s
+TASK.5.6: Image Number :6 ,TTC_Lidar ,12s, TTC_CAMERA,14s
+TASK.5.6: Image Number :7 ,TTC_Lidar ,11s, TTC_CAMERA,18s
+TASK.5.6: Image Number :8 ,TTC_Lidar ,13s, TTC_CAMERA,17s
+TASK.5.6: Image Number :9 ,TTC_Lidar ,13s, TTC_CAMERA,14s
+TASK.5.6: Image Number :10 ,TTC_Lidar ,11s, TTC_CAMERA,14s
+TASK.5.6: Image Number :11 ,TTC_Lidar ,12s, TTC_CAMERA,13s
+TASK.5.6: Image Number :12 ,TTC_Lidar ,8s, TTC_CAMERA,11s
+TASK.5.6: Image Number :13 ,TTC_Lidar ,9s, TTC_CAMERA,12s
+TASK.5.6: Image Number :14 ,TTC_Lidar ,9s, TTC_CAMERA,11s
+TASK.5.6: Image Number :15 ,TTC_Lidar ,8s, TTC_CAMERA,12s
+TASK.5.6: Image Number :16 ,TTC_Lidar ,9s, TTC_CAMERA,10s
+TASK.5.6: Image Number :17 ,TTC_Lidar ,9s, TTC_CAMERA,9s
+TASK.5.6: Image Number :18 ,TTC_Lidar ,8s, TTC_CAMERA,10s
+
+Detector Type: BRISK Descriptor Type: BRIEF
+
+TASK.5.6: Image Number :1 ,TTC_Lidar ,12s, TTC_CAMERA,13s
+TASK.5.6: Image Number :2 ,TTC_Lidar ,12s, TTC_CAMERA,18s
+TASK.5.6: Image Number :3 ,TTC_Lidar ,14s, TTC_CAMERA,12s
+TASK.5.6: Image Number :4 ,TTC_Lidar ,16s, TTC_CAMERA,18s
+TASK.5.6: Image Number :5 ,TTC_Lidar ,15s, TTC_CAMERA,27s
+TASK.5.6: Image Number :6 ,TTC_Lidar ,12s, TTC_CAMERA,19s
+TASK.5.6: Image Number :7 ,TTC_Lidar ,11s, TTC_CAMERA,17s
+TASK.5.6: Image Number :8 ,TTC_Lidar ,13s, TTC_CAMERA,18s
+TASK.5.6: Image Number :9 ,TTC_Lidar ,13s, TTC_CAMERA,14s
+TASK.5.6: Image Number :10 ,TTC_Lidar ,11s, TTC_CAMERA,12s
+TASK.5.6: Image Number :11 ,TTC_Lidar ,12s, TTC_CAMERA,11s
+TASK.5.6: Image Number :12 ,TTC_Lidar ,8s, TTC_CAMERA,14s
+TASK.5.6: Image Number :13 ,TTC_Lidar ,9s, TTC_CAMERA,12s
+TASK.5.6: Image Number :14 ,TTC_Lidar ,9s, TTC_CAMERA,10s
+TASK.5.6: Image Number :15 ,TTC_Lidar ,8s, TTC_CAMERA,11s
+TASK.5.6: Image Number :16 ,TTC_Lidar ,9s, TTC_CAMERA,13s
+TASK.5.6: Image Number :17 ,TTC_Lidar ,9s, TTC_CAMERA,11s
+TASK.5.6: Image Number :18 ,TTC_Lidar ,8s, TTC_CAMERA,9s
+
+Detector Type: BRISK Descriptor Type: ORB
+
+TASK.5.6: Image Number :1 ,TTC_Lidar ,12s, TTC_CAMERA,13s
+TASK.5.6: Image Number :2 ,TTC_Lidar ,12s, TTC_CAMERA,14s
+TASK.5.6: Image Number :3 ,TTC_Lidar ,14s, TTC_CAMERA,13s
+TASK.5.6: Image Number :4 ,TTC_Lidar ,16s, TTC_CAMERA,19s
+TASK.5.6: Image Number :5 ,TTC_Lidar ,15s, TTC_CAMERA,20s
+TASK.5.6: Image Number :6 ,TTC_Lidar ,12s, TTC_CAMERA,15s
+TASK.5.6: Image Number :7 ,TTC_Lidar ,11s, TTC_CAMERA,18s
+TASK.5.6: Image Number :8 ,TTC_Lidar ,13s, TTC_CAMERA,15s
+TASK.5.6: Image Number :9 ,TTC_Lidar ,13s, TTC_CAMERA,12s
+TASK.5.6: Image Number :10 ,TTC_Lidar ,11s, TTC_CAMERA,12s
+TASK.5.6: Image Number :11 ,TTC_Lidar ,12s, TTC_CAMERA,12s
+TASK.5.6: Image Number :12 ,TTC_Lidar ,8s, TTC_CAMERA,10s
+TASK.5.6: Image Number :13 ,TTC_Lidar ,9s, TTC_CAMERA,11s
+TASK.5.6: Image Number :14 ,TTC_Lidar ,9s, TTC_CAMERA,10s
+TASK.5.6: Image Number :15 ,TTC_Lidar ,8s, TTC_CAMERA,12s
+TASK.5.6: Image Number :16 ,TTC_Lidar ,9s, TTC_CAMERA,10s
+TASK.5.6: Image Number :17 ,TTC_Lidar ,9s, TTC_CAMERA,9s
+TASK.5.6: Image Number :18 ,TTC_Lidar ,8s, TTC_CAMERA,10s
+
+Detector Type: ORB Descriptor Type: BRISK
+
+TASK.5.6: Image Number :1 ,TTC_Lidar ,12s, TTC_CAMERA,17s
+TASK.5.6: Image Number :2 ,TTC_Lidar ,12s, TTC_CAMERA,15s
+TASK.5.6: Image Number :3 ,TTC_Lidar ,14s, TTC_CAMERA,19s
+TASK.5.6: Image Number :4 ,TTC_Lidar ,16s, TTC_CAMERA,21s
+TASK.5.6: Image Number :5 ,TTC_Lidar ,15s, TTC_CAMERA,73s
+TASK.5.6: Image Number :6 ,TTC_Lidar ,12s, TTC_CAMERA,12s
+TASK.5.6: Image Number :7 ,TTC_Lidar ,11s, TTC_CAMERA,17s
+TASK.5.6: Image Number :8 ,TTC_Lidar ,13s, TTC_CAMERA,11s
+TASK.5.6: Image Number :9 ,TTC_Lidar ,13s, TTC_CAMERA,11s
+TASK.5.6: Image Number :10 ,TTC_Lidar ,11s, TTC_CAMERA,15s
+TASK.5.6: Image Number :11 ,TTC_Lidar ,12s, TTC_CAMERA,8s
+TASK.5.6: Image Number :12 ,TTC_Lidar ,8s, TTC_CAMERA,5416s
+TASK.5.6: Image Number :13 ,TTC_Lidar ,9s, TTC_CAMERA,8s
+TASK.5.6: Image Number :14 ,TTC_Lidar ,9s, TTC_CAMERA,9s
+TASK.5.6: Image Number :15 ,TTC_Lidar ,8s, TTC_CAMERA,9s
+TASK.5.6: Image Number :16 ,TTC_Lidar ,9s, TTC_CAMERA,9s
+TASK.5.6: Image Number :17 ,TTC_Lidar ,9s, TTC_CAMERA,15s
+TASK.5.6: Image Number :18 ,TTC_Lidar ,8s, TTC_CAMERA,18s
+
+Detector Type: ORB Descriptor Type: BRIEF
+
+TASK.5.6: Image Number :1 ,TTC_Lidar ,12s, TTC_CAMERA,16s
+TASK.5.6: Image Number :2 ,TTC_Lidar ,12s, TTC_CAMERA,23s
+TASK.5.6: Image Number :3 ,TTC_Lidar ,14s, TTC_CAMERA,30s
+TASK.5.6: Image Number :4 ,TTC_Lidar ,16s, TTC_CAMERA,24s
+TASK.5.6: Image Number :5 ,TTC_Lidar ,15s, TTC_CAMERA,25s
+TASK.5.6: Image Number :6 ,TTC_Lidar ,12s, TTC_CAMERA,18s
+TASK.5.6: Image Number :7 ,TTC_Lidar ,11s, TTC_CAMERA,40s
+TASK.5.6: Image Number :8 ,TTC_Lidar ,13s, TTC_CAMERA,31s
+TASK.5.6: Image Number :9 ,TTC_Lidar ,13s, TTC_CAMERA,-2147483648s
+TASK.5.6: Image Number :10 ,TTC_Lidar ,11s, TTC_CAMERA,28s
+TASK.5.6: Image Number :11 ,TTC_Lidar ,12s, TTC_CAMERA,10s
+TASK.5.6: Image Number :12 ,TTC_Lidar ,8s, TTC_CAMERA,16s
+TASK.5.6: Image Number :13 ,TTC_Lidar ,9s, TTC_CAMERA,10s
+TASK.5.6: Image Number :14 ,TTC_Lidar ,9s, TTC_CAMERA,9s
+TASK.5.6: Image Number :15 ,TTC_Lidar ,8s, TTC_CAMERA,12s
+TASK.5.6: Image Number :16 ,TTC_Lidar ,9s, TTC_CAMERA,13s
+TASK.5.6: Image Number :17 ,TTC_Lidar ,9s, TTC_CAMERA,16s
+TASK.5.6: Image Number :18 ,TTC_Lidar ,8s, TTC_CAMERA,13s
+
+Detector Type: ORB Descriptor Type: ORB
+
+TASK.5.6: Image Number :1 ,TTC_Lidar ,12s, TTC_CAMERA,24s
+TASK.5.6: Image Number :2 ,TTC_Lidar ,12s, TTC_CAMERA,9s
+TASK.5.6: Image Number :3 ,TTC_Lidar ,14s, TTC_CAMERA,17s
+TASK.5.6: Image Number :4 ,TTC_Lidar ,16s, TTC_CAMERA,26s
+TASK.5.6: Image Number :5 ,TTC_Lidar ,15s, TTC_CAMERA,26s
+TASK.5.6: Image Number :6 ,TTC_Lidar ,12s, TTC_CAMERA,10s
+TASK.5.6: Image Number :7 ,TTC_Lidar ,11s, TTC_CAMERA,41s
+TASK.5.6: Image Number :8 ,TTC_Lidar ,13s, TTC_CAMERA,10s
+TASK.5.6: Image Number :9 ,TTC_Lidar ,13s, TTC_CAMERA,18s
+TASK.5.6: Image Number :10 ,TTC_Lidar ,11s, TTC_CAMERA,16s
+TASK.5.6: Image Number :11 ,TTC_Lidar ,12s, TTC_CAMERA,8s
+TASK.5.6: Image Number :12 ,TTC_Lidar ,8s, TTC_CAMERA,30s
+TASK.5.6: Image Number :13 ,TTC_Lidar ,9s, TTC_CAMERA,9s
+TASK.5.6: Image Number :14 ,TTC_Lidar ,9s, TTC_CAMERA,9s
+TASK.5.6: Image Number :15 ,TTC_Lidar ,8s, TTC_CAMERA,12s
+TASK.5.6: Image Number :16 ,TTC_Lidar ,9s, TTC_CAMERA,9s
+TASK.5.6: Image Number :17 ,TTC_Lidar ,9s, TTC_CAMERA,22s
+TASK.5.6: Image Number :18 ,TTC_Lidar ,8s, TTC_CAMERA,21s
+
