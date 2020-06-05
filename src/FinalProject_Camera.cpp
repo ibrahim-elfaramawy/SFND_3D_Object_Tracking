@@ -26,7 +26,25 @@ using namespace std;
 int main(int argc, const char *argv[])
 {
     /* INIT VARIABLES AND DATA STRUCTURES */
+    string detectorType = "SHITOMASI";    // HARRIS, FAST, BRISK, ORB, AKAZE, SIFT
+    string descriptorType = "BRISK";      // BRIEF, ORB, FREAK, AKAZE, SIFT
+   
+    if(argc == 1)
+    {
+        detectorType = "SHITOMASI";
+        descriptorType = "BRISK";
+    }
+    else if(argc == 2)
+    {
+        detectorType = argv[1];
+    }
+    else
+    {
+        detectorType = argv[1];
+        descriptorType = argv[2];
+    }
 
+    vector<int> vttcLidar, vttcCamera;
     // data location
     string dataPath = "../";
 
@@ -129,10 +147,10 @@ int main(int argc, const char *argv[])
         clusterLidarWithROI((dataBuffer.end()-1)->boundingBoxes, (dataBuffer.end() - 1)->lidarPoints, shrinkFactor, P_rect_00, R_rect_00, RT);
 
         // Visualize 3D objects
-        bVis = true;
+        bVis = false;
         if(bVis)
         {
-            show3DObjects((dataBuffer.end()-1)->boundingBoxes, cv::Size(4.0, 20.0), cv::Size(2000, 2000), true);
+            show3DObjects((dataBuffer.end()-1)->boundingBoxes, cv::Size(4.0, 20.0), cv::Size(1000, 1000), true);
         }
         bVis = false;
 
@@ -140,7 +158,7 @@ int main(int argc, const char *argv[])
         
         
         // REMOVE THIS LINE BEFORE PROCEEDING WITH THE FINAL PROJECT
-        continue; // skips directly to the next image without processing what comes beneath
+        //continue; // skips directly to the next image without processing what comes beneath
 
         /* DETECT IMAGE KEYPOINTS */
 
@@ -150,15 +168,19 @@ int main(int argc, const char *argv[])
 
         // extract 2D keypoints from current image
         vector<cv::KeyPoint> keypoints; // create empty feature list for current image
-        string detectorType = "SHITOMASI";
+        //string detectorType = "SHITOMASI";
 
         if (detectorType.compare("SHITOMASI") == 0)
         {
             detKeypointsShiTomasi(keypoints, imgGray, false);
         }
+        else if (detectorType.compare("HARRIS") == 0)
+        {
+            detKeypointsHarris(keypoints, imgGray, false);
+        }
         else
         {
-            //...
+            detKeypointsModern(keypoints, imgGray, detectorType, false);
         }
 
         // optional : limit number of keypoints (helpful for debugging and learning)
@@ -184,7 +206,7 @@ int main(int argc, const char *argv[])
         /* EXTRACT KEYPOINT DESCRIPTORS */
 
         cv::Mat descriptors;
-        string descriptorType = "BRISK"; // BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT
+        //string descriptorType = "BRISK"; // BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT
         descKeypoints((dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->cameraImg, descriptors, descriptorType);
 
         // push descriptors for current frame to end of data buffer
@@ -266,7 +288,9 @@ int main(int argc, const char *argv[])
                     clusterKptMatchesWithROI(*currBB, (dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, (dataBuffer.end() - 1)->kptMatches);                    
                     computeTTCCamera((dataBuffer.end() - 2)->keypoints, (dataBuffer.end() - 1)->keypoints, currBB->kptMatches, sensorFrameRate, ttcCamera);
                     //// EOF STUDENT ASSIGNMENT
-
+                    // To be stored in file for comparison
+                    vttcLidar.push_back(ttcLidar);
+                    vttcCamera.push_back(ttcCamera);
                     bVis = true;
                     if (bVis)
                     {
@@ -292,6 +316,16 @@ int main(int argc, const char *argv[])
         }
 
     } // eof loop over all images
+    /* ofstream outfile;
+    //outfile.open("../perfEvaluation.txt", fstream::app);
+    outfile.open("../perfEvaluationTest.txt", fstream::app);
+    outfile << "Detector Type: " << detectorType << " Descriptor Type: " << descriptorType << endl << endl;
+     for(int i = 0; i< vttcLidar.size();i++)
+     {
+         outfile << "TASK.5.6: Image Number :" << i+1 << " ,TTC_Lidar ," << vttcLidar[i] << "s, TTC_CAMERA," << vttcCamera[i] << "s" << endl;
+     }
+     outfile << endl;
+    outfile.close(); */
 
     return 0;
 }

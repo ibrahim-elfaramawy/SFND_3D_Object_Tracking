@@ -133,7 +133,46 @@ void show3DObjects(std::vector<BoundingBox> &boundingBoxes, cv::Size worldSize, 
 // associate a given bounding box with the keypoints it contains
 void clusterKptMatchesWithROI(BoundingBox &boundingBox, std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPoint> &kptsCurr, std::vector<cv::DMatch> &kptMatches)
 {
-    // ...
+    std::vector<cv::DMatch> kptMatchesRoi;
+    for(auto it=kptMatches.begin(); it!=kptMatches.end(); ++it)
+    {
+        // get current keypoint
+        cv::KeyPoint kpCurr = kptsCurr.at(it->trainIdx);
+
+        // check if the current keypoint is enclosed by the bounding box
+        if(boundingBox.roi.contains(kpCurr.pt))
+                kptMatchesRoi.push_back(*it);
+    }
+
+    // Calculate the mean distance among all the kptsMatches inside the bounding box
+    double meanDist= 0;
+    double threshold = 0.75;
+    for (auto it1 = kptMatchesRoi.begin(); it1 != kptMatchesRoi.end(); ++it1)
+    {
+        // get current keypoint and its matched partner in the prev. frame
+        cv::KeyPoint kpCurr = kptsCurr.at(it1->trainIdx);
+        cv::KeyPoint kpPrev = kptsPrev.at(it1->queryIdx);
+
+        meanDist += cv::norm(kpCurr.pt-kpPrev.pt);       
+    }
+
+    meanDist = meanDist / kptMatchesRoi.size();
+
+    // Filter outlier matches based on the distance by removing all the distances below a predefined threshold (0.75)
+    for (auto it1 = kptMatchesRoi.begin(); it1 != kptMatchesRoi.end(); ++it1)
+    {
+        // get current keypoint and its matched partner in the prev. frame
+        cv::KeyPoint kpCurr = kptsCurr.at(it1->trainIdx);
+        cv::KeyPoint kpPrev = kptsPrev.at(it1->queryIdx);
+
+        double distance =   cv::norm(kpCurr.pt-kpPrev.pt); 
+        if(distance < meanDist * 0.75)
+        {
+            boundingBox.keypoints.push_back(kpCurr);
+            boundingBox.kptMatches.push_back(*it1);
+        }  
+    }
+
 }
 
 
@@ -141,18 +180,157 @@ void clusterKptMatchesWithROI(BoundingBox &boundingBox, std::vector<cv::KeyPoint
 void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPoint> &kptsCurr, 
                       std::vector<cv::DMatch> kptMatches, double frameRate, double &TTC, cv::Mat *visImg)
 {
-    // ...
+    // compute distance ratios between all matched keypoints
+    vector<double> distRatios; // stores the distance ratios for all keypoints between curr. and prev. frame
+    for (auto it1 = kptMatches.begin(); it1 != kptMatches.end() - 1; ++it1)
+    { // outer kpt. loop
+
+        // get current keypoint and its matched partner in the prev. frame
+        cv::KeyPoint kpOuterCurr = kptsCurr.at(it1->trainIdx);
+        cv::KeyPoint kpOuterPrev = kptsPrev.at(it1->queryIdx);
+
+        for (auto it2 = kptMatches.begin() + 1; it2 != kptMatches.end(); ++it2)
+        { // inner kpt.-loop
+
+            double minDist = 100.0; // min. required distance
+
+            // get next keypoint and its matched partner in the prev. frame
+            cv::KeyPoint kpInnerCurr = kptsCurr.at(it2->trainIdx);
+            cv::KeyPoint kpInnerPrev = kptsPrev.at(it2->queryIdx);
+
+            // compute distances and distance ratios
+            double distCurr = cv::norm(kpOuterCurr.pt - kpInnerCurr.pt);
+            double distPrev = cv::norm(kpOuterPrev.pt - kpInnerPrev.pt);
+
+            if (distPrev > std::numeric_limits<double>::epsilon() && distCurr >= minDist)
+            { // avoid division by zero
+
+                double distRatio = distCurr / distPrev;
+                distRatios.push_back(distRatio);
+            }
+        } // eof inner loop over all matched kpts
+    }     // eof outer loop over all matched kpts
+
+    // only continue if list of distance ratios is not empty
+    if (distRatios.size() == 0)
+    {
+        TTC = NAN;
+        return;
+    }
+
+
+    // STUDENT TASK (replacement for medianDistRatio)
+    std::sort(distRatios.begin(), distRatios.end());
+    long medIndex = floor(distRatios.size() / 2.0);
+    double medDistRatio = distRatios.size() % 2 == 0 ? (distRatios[medIndex - 1] + distRatios[medIndex]) / 2.0 : distRatios[medIndex]; // compute median dist. ratio to remove outlier influence
+
+    double dT = 1 / frameRate;
+    TTC = -dT / (1 - medDistRatio);
+    // EOF STUDENT TASK
 }
 
 
 void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
                      std::vector<LidarPoint> &lidarPointsCurr, double frameRate, double &TTC)
 {
-    // ...
+    // auxiliary variables
+    double dT = 0.1;        // time between two measurements in seconds
+
+    // find closest distance to Lidar points within ego lane
+    double minXPrev = 1e9, minXCurr = 1e9;
+    vector<double> prevXPoints, currXPoints;
+    for (auto it = lidarPointsPrev.begin(); it != lidarPointsPrev.end(); ++it)
+    {
+        prevXPoints.push_back(it->x);
+    }
+
+    for (auto it = lidarPointsCurr.begin(); it != lidarPointsCurr.end(); ++it)
+    {
+        currXPoints.push_back(it->x);
+    }
+
+    // Calculate the minXPrev and minXCurr using the median calculation of the prevXPoints and currXPoints
+   /*  std::sort(prevXPoints.begin(), prevXPoints.end());
+    long medIndex = floor(prevXPoints.size() / 2.0);
+    minXPrev = prevXPoints.size() % 2 == 0 ? (prevXPoints[medIndex - 1] + prevXPoints[medIndex]) / 2.0 : prevXPoints[medIndex]; // compute median prevXPoint remove outlier influence
+    
+    std::sort(currXPoints.begin(), currXPoints.end());
+    medIndex = floor(currXPoints.size() / 2.0);
+    minXCurr = currXPoints.size() % 2 == 0 ? (currXPoints[medIndex - 1] + currXPoints[medIndex]) / 2.0 : currXPoints[medIndex]; // compute median currXPoint to remove outlier influence
+ */
+
+    // Calculate the minXPrev and minXCurr using the mean calculation of the prevXPoints and currXPoints
+    double meanDist=0;
+    for(int i=0; i<currXPoints.size();i++)
+    {
+        meanDist+=currXPoints[i];
+    }
+    minXCurr = meanDist / currXPoints.size();
+    meanDist=0;
+    for(int i=0; i<prevXPoints.size();i++)
+    {
+        meanDist+=prevXPoints[i];
+    }
+    minXPrev = meanDist/prevXPoints.size();
+
+    // compute TTC from the median minX measurements
+    TTC = minXCurr * dT / (minXPrev - minXCurr);
 }
 
 
 void matchBoundingBoxes(std::vector<cv::DMatch> &matches, std::map<int, int> &bbBestMatches, DataFrame &prevFrame, DataFrame &currFrame)
 {
-    // ...
+    int prevbbSize = prevFrame.boundingBoxes.size();
+    int currbbSize = currFrame.boundingBoxes.size();
+    int mapbbIds[prevbbSize][currbbSize] = {};
+
+    for (auto it1 = matches.begin(); it1 != matches.end() - 1; ++it1)
+    { // outer kpt. loop
+
+        // get current keypoint and its matched partner in the prev. frame
+        cv::KeyPoint kpCurr = currFrame.keypoints[it1->trainIdx];
+        cv::KeyPoint kpPrev = prevFrame.keypoints[it1->queryIdx];
+
+        vector<int> prevbbMatchIds, currbbMatchIds;
+
+        // For each prev, curr boudning box check it the keypoints are enclosed by the bounding box and store the box id
+
+        for(int i= 0;i<currbbSize;i++)
+        {
+            if(currFrame.boundingBoxes[i].roi.contains(kpCurr.pt))
+                currbbMatchIds.push_back(currFrame.boundingBoxes[i].boxID);
+        }
+
+        for(int j= 0;j<prevbbSize;j++)
+        {
+            if(prevFrame.boundingBoxes[j].roi.contains(kpPrev.pt))
+                prevbbMatchIds.push_back(prevFrame.boundingBoxes[j].boxID);
+        }
+
+        // count the matched prev and curr boxIds 
+        for(int prevbbId=0;prevbbId<prevbbMatchIds.size(); prevbbId++)
+        {
+            for(int currbbId=0;currbbId<currbbMatchIds.size(); currbbId++)
+            {
+                mapbbIds[prevbbMatchIds[prevbbId]][currbbMatchIds[currbbId]] += 1;
+            }   
+        }
+    }
+
+    // Fill the bbBsetMatches map with the highest number of occurrences between the prev. and curr. boudning box
+    for(int i=0;i<prevbbSize;i++)
+    {
+        int maxMatch=0;
+        int bestId=0;
+        for(int j=0;j<currbbSize;j++)
+        {
+            if(mapbbIds[i][j] > maxMatch)
+            {
+                maxMatch = mapbbIds[i][j];
+                bestId = j;
+            }
+        }
+        bbBestMatches[i]=bestId;
+    }
+
 }
